@@ -36,7 +36,8 @@
           "2020": 21060473.61,
           "2021": 23315080.56,
           "2022": 25439700,
-          "国名": "USA"
+          "国名": "USA",
+          "RGBコード": "250, 191, 28"
         },
         {
           "2010": 6087191.747,
@@ -52,7 +53,8 @@
           "2020": 14687744.16,
           "2021": 17820459.51,
           "2022": 17963171.48,
-          "国名": "China"
+          "国名": "China",
+          "RGBコード": "187, 100, 29"
         },
         {
           "2010": 5759071.769,
@@ -68,7 +70,8 @@
           "2020": 5055587.094,
           "2021": 5034620.785,
           "2022": 4256410.761,
-          "国名": "Japan"
+          "国名": "Japan",
+          "RGBコード": "35, 127, 196"
         },
         {
           "2010": 2485482.596,
@@ -84,7 +87,8 @@
           "2020": 2697806.592,
           "2021": 3141506.157,
           "2022": 3089072.722,
-          "国名": "UK"
+          "国名": "UK",
+          "RGBコード": "219, 83, 52"
         },
         {
           "2010": 239807.9806,
@@ -100,21 +104,20 @@
           "2020": 348392.0907,
           "2021": 423797.1005,
           "2022": 466788.4268,
-          "国名": "Singapore"
+          "国名": "Singapore",
+          "RGBコード": "145, 112, 175"
         }
       ];
 
         // Process data for Chart.js
-        const years = Object.keys(rawData[0]).filter(key => key !== "国名");
-        const datasets = rawData.map(country => {
-            return {
-                label: country["国名"],
-                data: years.map(year => country[year]),
-                fill: false,
-                borderColor: `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`,
-                tension: 0.1
-            };
-        });
+        const years = Object.keys(rawData[0]).filter(key => key !== "国名" && key !== "RGBコード");
+        const datasets = rawData.map(country => ({
+            label: country["国名"],
+            data: years.map(year => country[year]),
+            fill: false,
+            borderColor: `rgb(${country["RGBコード"] || '0, 0, 0'})`,
+            tension: 0.1
+        }));
 
         const config = {
             type: 'line',
@@ -127,10 +130,18 @@
                 plugins: {
                     legend: {
                         position: 'top',
+                        labels: {
+                            font: {
+                                size: 20 
+                            }
+                        }
                     },
                     title: {
                         display: true,
-                        text: 'Line Chart Example'
+                        text: 'GDPの推移',
+                        font: {
+                            size: 32
+                        }
                     }
                 }
             }
