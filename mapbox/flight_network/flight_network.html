@@ -95,7 +95,9 @@
 
         map.on('load', () => {
 
-            // Add initial source for the city polygons (default: London).
+            /* -------------------------------------------------------------
+             初期値の描画
+            ------------------------------------------------------------- */
             map.addSource('flight_network', {
                 'type': 'geojson',
                 'data': './02_geojson/fly-tyo_linestring.geojson'
@@ -112,7 +114,28 @@
                 }
             });
 
-            // Update the map when a new city is selected
+            const geojsonPath = './02_geojson/fly-tyo_linestring.geojson';
+
+            fetch(geojsonPath)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const featureCount = data.features.length; // Count the number of features
+                    document.getElementById("number_of_flight").textContent = featureCount;
+                })
+                .catch(error => {
+                    console.error('Error fetching GeoJSON:', error);
+                    document.getElementById("number_of_flight").textContent = 'Error loading data.';
+                });
+
+
+            /* -------------------------------------------------------------
+             描画の更新
+            ------------------------------------------------------------- */
             document.getElementById("fly").select.onchange = function() {
             var target = document.getElementById("fly").select.value;
             var geojsonPath = './02_geojson/' + target + '_linestring.geojson';
@@ -195,6 +218,7 @@
             map.addControl(new mapboxgl.NavigationControl());
 
         });
+        
     </script>
 
 </body>
