@@ -61,8 +61,8 @@
             // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
             style: 'mapbox://styles/mapbox/satellite-v9',
             projection: 'globe', // Display the map as a globe, since satellite-v9 defaults to Mercator
-            zoom: 4,
-            pitch: 10,
+            zoom: 5,
+            pitch: 20,
             center: [139.7682320401466, 35.42694411416717],
         });
 
@@ -116,7 +116,7 @@
                     ],
 
                     // Get `fill-extrusion-height` from the source `height` property.
-                    'fill-extrusion-height': ['*', ['get', 'GDP_2021年'], 0.005],
+                    'fill-extrusion-height': ['*', ['get', 'GDP_2021年'], 0.003],
 
                     // Get `fill-extrusion-base` from the source `base_height` property.['get', 'base_height']
                     'fill-extrusion-base': 0,
