@@ -60,9 +60,10 @@
             // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
             style: 'mapbox://styles/mapbox/satellite-v9',
             projection: 'globe', // Display the map as a globe, since satellite-v9 defaults to Mercator
-            zoom: 4,
-            pitch: 10,
-            center: [139.7682320401466, 35.42694411416717],
+            zoom: 5,
+            pitch: 30,
+            bearing: -10,
+            center: [138.29058267382655, 37.58725360866509],
         });
 
         map.on('style.load', () => {

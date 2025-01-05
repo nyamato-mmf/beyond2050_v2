@@ -27,6 +27,11 @@
             bottom: 0;
             width: 100%;
         }
+
+        .popup-content {
+            font-size: 18px;
+            font-weight: bold;
+        }
         
         /* ===== sidebar =====*/
         #sidebar {
@@ -61,9 +66,10 @@
             // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
             style: 'mapbox://styles/mapbox/satellite-v9',
             projection: 'globe', // Display the map as a globe, since satellite-v9 defaults to Mercator
-            zoom: 4,
-            pitch: 10,
-            center: [139.7682320401466, 35.42694411416717],
+            zoom: 5,
+            pitch: 30,
+            bearing: -10,
+            center: [138.29058267382655, 37.58725360866509],
         });
 
         map.on('style.load', () => {
@@ -130,10 +136,19 @@
         // When a click event occurs on a feature in the cities layer, open a popup at the
         // location of the click, with description HTML from its properties.
         map.on('click', 'volume', function (e) {
-            new mapboxgl.Popup()
-                .setLngLat(e.lngLat)
-                .setHTML(e.features[0].properties.name + ": " + parseInt(e.features[0].properties["総人口_2021年"]).toLocaleString() + "人")
-                .addTo(map);
+
+                if (e.features && e.features.length > 0) {
+                const feature = e.features[0];
+                const name = feature.properties.name || "Unknown";
+                const gdp = feature.properties["総人口_2021年"] ? parseInt(feature.properties["総人口_2021年"]) : 0;
+
+                new mapboxgl.Popup()
+                    .setLngLat(e.lngLat)
+                    .setHTML(`<div class="popup-content">${name}: ${parseInt((gdp / 1000000).toLocaleString())} 百万人`)
+                    .addTo(map);
+            } else {
+                console.warn("No features found on click.");
+            }
         });
 
         // Change the cursor to a pointer when the mouse is over the cities layer.

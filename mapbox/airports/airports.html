@@ -10,10 +10,31 @@
 <style>
     body { margin: 0; padding: 0; }
     #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+
+    /* ===== sidebar =====*/
+    #sidebar {
+    position: absolute;
+    z-index: 2;
+    top: 0px;
+    left: 0px;
+    width: auto;
+    padding: 20px;
+    }
+
+    .indicator-title{
+        color: white;
+        font-size: 50px;
+    }
 </style>
 </head>
 
 <body>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <h1 class="indicator-title">国際線旅客者数</h1>
+        <p style="font-size: small; color: white;">出典: 国土交通省 東京航空局・大阪航空局 </p>
+    </div>
 
     <div id="map"></div>
 
@@ -24,7 +45,7 @@
             style: 'mapbox://styles/mapbox/satellite-v9',
             projection: 'globe', // Display the map as a globe, since satellite-v9 defaults to Mercator
             zoom: 5, // starting zoom
-            center: [139.7527758040573, 35.68535529255434] // starting center
+            center: [138.29058267382655, 37.58725360866509],
         });
 
         map.on('load', () => {
@@ -47,7 +68,7 @@
                         ['linear'], 
                         ['get', '国際線旅客者数'], 
                         0, 1,  // Minimum value (1) maps to a circle radius of 2
-                        16312020, 20 // Maximum value (10) maps to a circle radius of 20
+                        16312020, 32 // Maximum value (10) maps to a circle radius of 20
                     ],
                     'circle-stroke-width': 1,
                     'circle-color': 'blue',
