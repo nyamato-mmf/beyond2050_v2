@@ -54,6 +54,8 @@ body { margin: 0; padding: 0; }
         <!-- Select a city to fly to -->
         <select name="select">
             <option value="fly-tyo">Tokyo</option>
+            <option value="fly-osa">Osaka</option>
+            <option value="fly-fuk">Fukuoka</option>
             <option value="fly-nyc">New York</option>
             <option value="fly-lon">London</option>
             <option value="fly-par">Paris</option>
@@ -137,6 +139,20 @@ body { margin: 0; padding: 0; }
                             essential: true
                         });
                         break;
+                    case "fly-osa":
+                        map.flyTo({
+                            center: [135.5021561677342, 34.693921820358064],
+                            zoom: 11,
+                            essential: true
+                        });
+                        break;
+                    case "fly-fuk":
+                        map.flyTo({
+                            center: [130.40173084766886, 33.59047034465218],
+                            zoom: 11,
+                            essential: true
+                        });
+                        break;                        
                     case "fly-nyc":
                         map.flyTo({
                             center: [-73.98554260298089, 40.7581534610924],
