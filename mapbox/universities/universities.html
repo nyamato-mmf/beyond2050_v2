@@ -53,10 +53,8 @@ body { margin: 0; padding: 0; }
         <!-- Select a city to fly to -->
         <select name="select">
             <option value="fly-tyo">Tokyo</option>
-            <option value="fly-nyc">New York</option>
-            <option value="fly-lon">London</option>
-            <option value="fly-par">Paris</option>
-            <option value="fly-sin">Singapore</option>
+            <option value="fly-osa">Osaka</option>
+            <option value="fly-fuk">Fukuoka</option>
         </select>
     </form>
     <p style="font-size: small; color: white;">出典: 国土数値情報</p>
@@ -119,37 +117,23 @@ body { margin: 0; padding: 0; }
             switch (target) {
                 case "fly-tyo":
                     map.flyTo({
-                    center: [139.7527758040573, 35.68535529255434],
-                    zoom: 11,
-                    essential: true
+                        center: [139.7527758040573, 35.68535529255434],
+                        zoom: 10,
+                        essential: true
                     });
                     break;
-                case "fly-nyc":
+                case "fly-osa":
                     map.flyTo({
-                    center: [-73.98554260298089, 40.7581534610924],
-                    zoom: 11,
-                    essential: true
+                        center: [135.5021561677342, 34.693921820358064],
+                        zoom: 10,
+                        essential: true
                     });
                     break;
-                case "fly-lon":
+                case "fly-fuk":
                     map.flyTo({
-                    center: [-0.1280757371601969, 51.508110075964964],
-                    zoom: 11,
-                    essential: true
-                    });
-                    break;
-                case "fly-par":
-                    map.flyTo({
-                    center: [2.3553137, 48.8809481],
-                    zoom: 11,
-                    essential: true
-                    });
-                    break;
-                case "fly-sin":
-                    map.flyTo({
-                    center: [103.8513365, 1.2830173],
-                    zoom: 11,
-                    essential: true
+                        center: [130.40173084766886, 33.59047034465218],
+                        zoom: 10,
+                        essential: true
                     });
                     break;
             }
