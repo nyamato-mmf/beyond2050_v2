@@ -109,6 +109,22 @@ body { margin: 0; padding: 0; }
             }
         });
 
+        //##### 都道府県境 データ #####//
+        map.addSource('prefectures', {
+            type: 'geojson',
+            // Use a URL for the value for the `data` property.
+            data: '../geojson_common/prefectures.geojson' 
+        });
+
+        map.addLayer({
+            'id': 'prefectures',
+            'type': 'line',
+            'source': 'prefectures',
+            'paint': {
+                'line-color': 'white',
+            }
+        });
+
         //##### Fly to 機能 #####//
         document.getElementById("fly").select.onchange = function() {
             var target = document.getElementById("fly").select.value;
