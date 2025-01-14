@@ -12,21 +12,28 @@
 
 <body>
 
-    <!-- 選択ボックス -->
-    <form id="city">
-        <select id="list" name="select">
-            <option>選択してください</option>
-        </select>
-    </form>
+    <div style="margin-top: 50px;">
 
-    <!-- グラフエリア -->
-    <div class="jpcRadar left"><canvas id="function" width="40" height="60"></canvas></div>
+        <!-- 選択ボックス -->
+        <form id="city">
+            <select id="list" name="select">
+                <option>選択してください</option>
+            </select>
+        </form>
+        
+        <!-- グラフエリア -->
+        <div class="jpcRadar left">
+            <canvas id="function" width="40" height="60"></canvas>
+            <p style="font-size: small; text-align: center;"><small>出典: 森記念財団都市戦略研究所「日本の都市特性評価」</small></p>
+        </div>
 
-
-    <!-- jsファイル読み込み -->
-    <script src="./script/cityList.js"></script>
-    <script src="./script/radarCharts.js"></script>
-
+        
+    </div>
+        
+        <!-- jsファイル読み込み -->
+        <script src="./script/cityList.js"></script>
+        <script src="./script/radarCharts.js"></script>
+        
 </body>
 
 </html>
