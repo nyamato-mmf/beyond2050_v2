@@ -67,7 +67,7 @@ const ch_f = new Chart("function", {
 
 // jpc2023_fデータの読み込み
 let jpc2023_f = [];
-$.getJSON("./json/jpc2023_f.json", function (data) {
+$.getJSON("./json/jpc2024_f.json", function (data) {
     jpc2023_f.push(data);
 });
 
