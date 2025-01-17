@@ -26,6 +26,10 @@ body { margin: 0; padding: 0; }
     font-size: 50px;
 }
 
+.popup-content {
+    font-size: 16px;
+}
+
   /* ===== fly to menu =====*/
   #fly {
     border: none;
@@ -200,35 +204,43 @@ body { margin: 0; padding: 0; }
         //##### Pop up 機能 #####//
         // Create a popup, but don't add it to the map yet.
         const popup = new mapboxgl.Popup({
-        closeButton: false,
-        closeOnClick: false
+            closeButton: false,
+            closeOnClick: false
         });
-        
+
         map.on('mouseenter', 'intl_students-layer', (e) => {
-        // Change the cursor style as a UI indicator.
-        map.getCanvas().style.cursor = 'pointer';
-        
-        // Copy coordinates array.
-        const coordinates = e.features[0].geometry.coordinates.slice();      
-        const univ_name = e.features[0].properties["Name"];
-        const num_intl_students = e.features[0].properties["留学生数"];
-        
-        // Ensure that if the map is zoomed out such that multiple
-        // copies of the feature are visible, the popup appears
-        // over the copy being pointed to.
-        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-        }
-        
-        // Populate the popup and set its coordinates
-        // based on the feature found.
-        popup.setLngLat(coordinates).setHTML(univ_name + "<br>" + "留学生数:" + num_intl_students + "人").addTo(map);
+            // Change the cursor style as a UI indicator.
+            map.getCanvas().style.cursor = 'pointer';
+
+            // Copy coordinates array.
+            const coordinates = e.features[0].geometry.coordinates.slice();      
+            const univ_name = e.features[0].properties["Name"];
+            const num_intl_students = e.features[0].properties["留学生数"];
+
+            // Ensure that if the map is zoomed out such that multiple
+            // copies of the feature are visible, the popup appears
+            // over the copy being pointed to.
+            while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+            }
+
+            // Populate the popup and set its coordinates
+            // based on the feature found.
+            popup.setLngLat(coordinates)
+                .setHTML(
+                    `<div style="font-size: 16px;">
+                        <strong>${univ_name}</strong><br>
+                        留学生数: ${num_intl_students}人
+                    </div>`
+                )
+                .addTo(map);
         });
-        
+
         map.on('mouseleave', 'intl_students-layer', () => {
-        map.getCanvas().style.cursor = '';
-        popup.remove();
+            map.getCanvas().style.cursor = '';
+            popup.remove();
         });
+
 
         //##### Navigation Control #####//
         map.addControl(new mapboxgl.NavigationControl());
