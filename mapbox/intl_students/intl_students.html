@@ -52,13 +52,13 @@ body { margin: 0; padding: 0; }
     <form id="fly">
         <!-- Select a city to fly to -->
         <select name="select">
-            <option value="fly-tyo">Tokyo</option>
-            <option value="fly-osa">Osaka</option>
-            <option value="fly-fuk">Fukuoka</option>
-            <option value="fly-nyc">New York</option>
-            <option value="fly-lon">London</option>
-            <option value="fly-par">Paris</option>
-            <option value="fly-sin">Singapore</option>
+            <option value="fly-tyo">Tokyo / 東京</option>
+            <option value="fly-osa">Osaka / 大阪</option>
+            <option value="fly-fuk">Fukuoka / 福岡</option>
+            <option value="fly-nyc">New York / ニューヨーク</option>
+            <option value="fly-lon">London / ロンドン</option>
+            <option value="fly-par">Paris / パリ</option>
+            <option value="fly-sin">Singapore / シンガポール</option>
         </select>
     </form>
     <p style="font-size: small; color: white;">出典: Times Higher Education</p>
@@ -94,9 +94,9 @@ body { margin: 0; padding: 0; }
                 'circle-radius': [
                     'interpolate', 
                     ['linear'], 
-                    ['get', '半径(1/10)'], 
-                    1, 2,  // Minimum value (1) maps to a circle radius of 2
-                    10, 20 // Maximum value (10) maps to a circle radius of 20
+                    ['get', '留学生数'], 
+                    1, 5,  // Minimum value (1) maps to a circle radius of 2
+                    25000, 30 // Maximum value (10) maps to a circle radius of 20
                 ],
                 'circle-stroke-width': 1,
                 'circle-color': 'blue',

@@ -32,7 +32,6 @@
 
 <body>
 
-
     <div id="map"></div>
     <script>
         mapboxgl.accessToken = 'pk.eyJ1IjoibnlhbWF0byIsImEiOiJja2Y4dzNkOW8wY3MwMnFvM29iNnJzNzVzIn0.GHlHwu3r5YjKBU3qAKvccQ';
@@ -46,6 +45,7 @@
             center: [139.7682320401466, 35.42694411416717],
         });
 
+        /* フォグ設定
         map.on('style.load', () => {
             map.setFog({
                 color: 'rgb(186, 210, 235)', // Lower atmosphere
@@ -55,7 +55,7 @@
                 'star-intensity': 0.6 // Background star brightness (default 0.35 at low zoooms )
             });
         });
-
+        */
 
         map.on('load', () => {
 
