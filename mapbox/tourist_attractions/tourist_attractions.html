@@ -11,6 +11,11 @@
 body { margin: 0; padding: 0; }
 #map { position: absolute; top: 0; bottom: 0; width: 100%; }
 
+/* ===== popup =====*/
+.popup-content {
+    font-size: 16px;
+}
+
 /* ===== sidebar =====*/
 #sidebar {
     position: absolute;
@@ -209,9 +214,12 @@ body { margin: 0; padding: 0; }
         
         // Populate the popup and set its coordinates
         // based on the feature found.
-        popup.setLngLat(coordinates).setHTML(univ_name + "<br>" + "レビュー数:" + num_tourist_attractions).addTo(map);
+        popup.setLngLat(coordinates).setHTML(`<div class="popup-content">
+                <strong>${univ_name}</strong><br>
+                レビュー数: ${num_tourist_attractions.toLocaleString()}
+            </div>`).addTo(map);
         });
-        
+
         map.on('mouseleave', 'tourist_attractions-layer', () => {
         map.getCanvas().style.cursor = '';
         popup.remove();
