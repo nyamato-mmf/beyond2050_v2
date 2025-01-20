@@ -179,7 +179,7 @@
 							</div>
 						</div>
 					</section>
-					<!-- 対象指標一覧 -->
+					<!-- GPCI 対象指標一覧 -->
 					<section data-background-color="white">
 						<div style="display: flex; justify-content: center; align-items: center;">
 							<img data-src="./img/gpci/gpci2023/dg_gpci2023_indicator_list.png" style="max-width: 100%; height: auto;"></div>
@@ -197,7 +197,7 @@
 						</div>
 					</section>
 				</section>
-
+				
 				<!-- ====================== 回帰分析 ====================== -->
 				<!-- 相関係数（ヒートマップ） -->
 				<section>
@@ -220,15 +220,21 @@
 						</div>
 					</section>
 
-					<!-- 外国人居住者数のグラフ -->
+					<!-- GPCI 対象指標一覧（再掲） -->
 					<section data-background-color="white">
+						<div style="display: flex; justify-content: center; align-items: center;">
+							<img data-src="./img/gpci/gpci2023/dg_gpci2023_indicator_list.png" style="max-width: 100%; height: auto;"></div>
+					</section>
+					
+					<!-- 外国人居住者数のグラフ -->
+					<section data-visibility="hidden" data-background-color="white">
 						<div style="display: flex; justify-content: center; align-items: center;">
 							<img src="./img/統計分析/foreign_residents_barh_seaborn.png" alt="Foreign Residents Bar Chart" style="max-height: 90vh;">
 						</div>
 					</section>	
 					
 					<!-- 相関係数-p値の散布図-->
-					<section data-background-color="white">
+					<section data-visibility="hidden" data-background-color="white">
 						<div style="display: flex; justify-content: center; gap: 20px; position: relative;">
 							<div style="display: flex; justify-content: center; align-items: center;">
 								<img data-src="./img/統計分析/coefficient_p-value_residents.png" width="750">
@@ -248,7 +254,7 @@
 					</section>
 					
 					<!-- ヒートマップ（相関係数とp値でフィルタリング後）-->
-					<section data-background-color="white">
+					<section data-visibility="hidden" data-background-color="white">
 						<div style="display: flex; justify-content: center; gap: 20px;">
 							<div style="display: flex; justify-content: center; align-items: center;">
 								<img data-src="./img/統計分析/heatmap_coefficient_p-value_residents.png" width="750">
@@ -256,7 +262,7 @@
 						</div>
 					</section>
 					<!-- ヒートマップ（多重共線性を排除後）-->
-					<section data-background-color="white">
+					<section data-visibility="hidden" data-background-color="white">
 						<div style="display: flex; justify-content: center; gap: 20px;">
 							<div style="display: flex; justify-content: center; align-items: center;">
 								<img data-src="./img/統計分析/heatmap_exclude_multicollinearity_residents.png" width="750">
@@ -264,7 +270,7 @@
 						</div>
 					</section>
 					<!-- ヒートマップ（選別された指標）-->
-					<section data-background-color="white">
+					<section data-visibility="hidden" data-background-color="white">
 						<div style="display: flex; justify-content: center; gap: 20px;">
 							<div style="display: flex; justify-content: center; align-items: center;">
 								<img data-src="./img/統計分析/heatmap_selected_indicators_residents.png" width="750">
@@ -272,7 +278,7 @@
 						</div>
 					</section>
 					<!-- 各説明変数の相関係数-->
-					<section data-background-color="white">
+					<section data-visibility="hidden" data-background-color="white">
 						<div style="display: flex; justify-content: center; gap: 20px;">
 							<div style="display: flex; justify-content: center; align-items: center;">
 								<img data-src="./img/統計分析/coef_residents_seaborn.png" height="650">
@@ -281,13 +287,13 @@
 					</section>
 					
 					<!-- 外国人訪問者数のグラフ -->
-					<section data-background-color="white">
+					<section data-visibility="hidden" data-visibility="hidden" data-background-color="white">
 						<div style="display: flex; justify-content: center; align-items: center;">
 							<img src="./img/統計分析/foreign_visitors_barh_seaborn.png" alt="Foreign Residents Bar Chart" style="max-height: 90vh;">
 						</div>
 					</section>	
 					<!-- 各説明変数の相関係数-->
-					<section data-background-color="white">
+					<section data-visibility="hidden" data-background-color="white">
 						<div style="display: flex; justify-content: center; gap: 20px;">
 							<div style="display: flex; justify-content: center; align-items: center;">
 								<img data-src="./img/統計分析/coef_visitors.png" height="650">
@@ -581,25 +587,14 @@
 							 <img data-src="./img/cps/jpc-cps_2023/スライド12.SVG" style="max-width: 100%; height: auto;">
 							</div>
 					</section>
-					 <section data-background-color="black">
-						 <div style="display: flex; justify-content: center; align-items: center;">
-							 <img data-src="./img/cps/jpc-cps_2023/スライド13.SVG" style="max-width: 100%; height: auto;">
-							</div>
-					</section>
-					 <section data-background-color="black">
-						 <div style="display: flex; justify-content: center; align-items: center;">
-							 <img data-src="./img/cps/jpc-cps_2023/スライド14.SVG" style="max-width: 100%; height: auto;">
-							</div>
-					</section>
 				</section>
 
 				<!-- エリアごとの魅力化 -->
-				<section>
-					<section data-fullscreen="true" data-background-color="rgb(0, 0, 0)">
-						<iframe class="stretch" data-src="./mapbox/metro_news/metro_news.html" data-preload frameborder="0"
-							allowfullscreen></iframe>
-					</section>
+				<section data-visibility="hidden" data-fullscreen="true" data-background-color="rgb(0, 0, 0)">
+					<iframe class="stretch" data-src="./mapbox/metro_news/metro_news.html" data-preload frameborder="0"
+						allowfullscreen></iframe>
 				</section>
+
 				
 				<!-- 提言 -->
 				<section>
@@ -614,9 +609,9 @@
 							<li class="fragment">機械：普遍性、大量生産性 ⇔ 建築：個別性、一回性、人々を内包する</li>					
 							<li class="fragment">その土地で人々が行う「営み」も個別性と一回性を有する。</li>
 							<li class="fragment">建築や営みのうち文化的価値の高いものが、その土地の有形・無形の価値となる。</li>
-							<li class="fragment">地域のコアバリューを見つけ出し、そのポテンシャルを活かした街づくりを行い、エリアのアイデンティティを高める。</li>
-							<li class="fragment">それらの文化的価値の高いエリアを繋ぐことで、都市全体が「生きたミュージアム」のようになる。</li>
-							<li class="fragment">それが、機能主義の先にある、成熟時代にふさわしい都市の姿である。</li>						
+							<li class="fragment">地域のコアバリューを見つけ出し、そのポテンシャルを活かした街づくりを政策的に行い、エリアのアイデンティティを高める。</li>
+							<li class="fragment">大都市と地方都市がそれぞれの個性をもって日本全体を形づくり、その間を人がダイナミックに対流する。</li>
+							<li class="fragment">それが、機能主義の先にある、成熟時代にふさわしい都市の姿である。</li>			
 						</ul>
 					</section>
 				</section>
